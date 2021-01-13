@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+
+android {
+    compileSdkVersion 30
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.yourcompany.newproject"
+        minSdkVersion    16
+        targetSdkVersion 30
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_TOOLCHAIN=clang", "-DANDROID_PLATFORM=android-16", "-DANDROID_STL=c++_static", "-DANDROID_CPP_FEATURES=exceptions rtti", "-DANDROID_ARM_MODE=arm", "-DANDROID_ARM_NEON=TRUE", "-DCMAKE_CXX_STANDARD=14", "-DCMAKE_CXX_EXTENSIONS=OFF"
+            }
+        }
+    }
+
+    buildTypes {
+         debug {
+         }
+         release {
+         }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        debug_ {
+            externalNativeBuild {
+                cmake {
+                    arguments "-DJUCE_BUILD_CONFIGURATION=DEBUG", "-DCMAKE_CXX_FLAGS_DEBUG=-O0", "-DCMAKE_C_FLAGS_DEBUG=-O0"
+                }
+            }
+            dimension "default"
+       }
+        release_ {
+            externalNativeBuild {
+                cmake {
+                    arguments "-DJUCE_BUILD_CONFIGURATION=RELEASE", "-DCMAKE_CXX_FLAGS_RELEASE=-O3", "-DCMAKE_C_FLAGS_RELEASE=-O3"
+                }
+            }
+            dimension "default"
+       }
+    }
+
+    sourceSets {
+        // FIXME: remove the forst emtry; framework should never depend on a derived Application class.
+        //  It should provide ContentProvider via Jetpack App Startup library.
+        main.java.srcDirs +=
+            ["../JUCE/modules/juce_core/native/javacore/app",
+             "../JUCE/modules/juce_core/native/javacore/init",
+             "../JUCE/modules/juce_gui_basics/native/javaopt/app"]
+        main.res.srcDirs +=
+            []
+    }
+
+    repositories {
+    }
+
+    dependencies {
+        implementation "androidx.startup:startup-runtime:1.0.0"
+    }
+}
+dependencies {
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    mavenCentral()
+}
+

@@ -1,0 +1,6 @@
+[submodule "oboe"]
+	path = oboe
+	url = https://github.com/google/oboe.git
+[submodule "JUCE"]
+	path = JUCE
+	url = https://github.com/juce-framework/JUCE.git
