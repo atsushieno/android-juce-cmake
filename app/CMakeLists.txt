@@ -78,6 +78,6 @@ else()
     message( FATAL_ERROR "No matching build-configuration found." )
 endif()
 
-#target_compile_options(ExamplePlugin PRIVATE "-fsigned-char" )
+target_compile_options(ExamplePlugin PRIVATE "-fsigned-char" )
 
 endif (ANDROID)
