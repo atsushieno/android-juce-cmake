@@ -2,19 +2,16 @@
 
 package com.rmsl.juce
 
-/*
 import android.content.Context
 
 class Java
 {
     companion object {
-        constructor() {
-            java.lang.System.loadLibrary("juce_jni")
+        init {
+            System.loadLibrary("juce_jni")
         }
         
         @JvmStatic
-        external fun initializeJUCE(applicationContext: Context)
+        external fun initialiseJUCE(applicationContext: Context)
     }
 }
-
-*/

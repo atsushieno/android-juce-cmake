@@ -54,9 +54,7 @@ android {
         // FIXME: remove the forst emtry; framework should never depend on a derived Application class.
         //  It should provide ContentProvider via Jetpack App Startup library.
         main.java.srcDirs +=
-            ["../JUCE/modules/juce_core/native/javacore/app",
-             "../JUCE/modules/juce_core/native/javacore/init",
-             "../JUCE/modules/juce_gui_basics/native/javaopt/app"]
+            ["../JUCE/modules/juce_gui_basics/native/javaopt/app"]
         main.res.srcDirs +=
             []
     }
