@@ -27,7 +27,7 @@ add_definitions(
     )
 
 # Enable these lines if you use juce_audio_devices API
-set(OBOE_DIR "../oboe")
+set(OBOE_DIR "../JUCE/modules/juce_audio_devices/native/oboe")
 add_subdirectory (${OBOE_DIR} ./oboe)
 
 # libcpufeatures
