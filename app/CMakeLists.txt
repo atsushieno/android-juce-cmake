@@ -18,12 +18,12 @@ if (ANDROID)
 # defs, some are specific to Android and need definisions in prior to `add_subdirectory(JUCE)`.
 add_definitions(
     "-DJUCE_ANDROID=1" 
-    "-DJUCE_ANDROID_API_VERSION=16" 
+#    "-DJUCE_ANDROID_API_VERSION=16" 
     "-DJUCE_PUSH_NOTIFICATIONS=1" 
     "-DJUCE_PUSH_NOTIFICATIONS_ACTIVITY=\"com/rmsl/juce/JuceActivity\"" 
-    "-DJUCER_ANDROIDSTUDIO_7F0E4A25=1" 
-    "-DJUCE_APP_VERSION=1.0.0" 
-    "-DJUCE_APP_VERSION_HEX=0x10000"
+#    "-DJUCER_ANDROIDSTUDIO_7F0E4A25=1" 
+#    "-DJUCE_APP_VERSION=1.0.0" 
+#    "-DJUCE_APP_VERSION_HEX=0x10000"
     )
 
 # Enable these lines if you use juce_audio_devices API
@@ -56,27 +56,6 @@ add_library(juce_jni
 target_link_libraries(juce_jni
     ExamplePlugin_Standalone
 )
-
-# Projucer-generated defs
-if(JUCE_BUILD_CONFIGURATION MATCHES "DEBUG")
-    add_definitions("-DJUCE_DISPLAY_SPLASH_SCREEN=0"
-     "-DJUCE_PROJUCER_VERSION=0x60005"
-     "-DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1"
-     "-DJUCE_STRICT_REFCOUNTEDPOINTER=1"
-     "-DJUCER_ANDROIDSTUDIO_7F0E4A25=1"
-     "-DDEBUG=1"
-     "-D_DEBUG=1"
-     )
-elseif(JUCE_BUILD_CONFIGURATION MATCHES "RELEASE")
-    add_definitions("-DJUCE_DISPLAY_SPLASH_SCREEN=0" 
-    "-DJUCE_PROJUCER_VERSION=0x60005" 
-    "-DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1"
-    "-DJUCE_STRICT_REFCOUNTEDPOINTER=1"
-    "-DJUCER_ANDROIDSTUDIO_7F0E4A25=1"
-   "-DNDEBUG=1")
-else()
-    message( FATAL_ERROR "No matching build-configuration found." )
-endif()
 
 target_compile_options(ExamplePlugin PRIVATE "-fsigned-char" )
 
