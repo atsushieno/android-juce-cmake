@@ -14,11 +14,11 @@
 //==============================================================================
 /**
 */
-class NewProjectAudioProcessorEditor  : public juce::AudioProcessorEditor
+class TestpluginAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
-    NewProjectAudioProcessorEditor (NewProjectAudioProcessor&);
-    ~NewProjectAudioProcessorEditor() override;
+    TestpluginAudioProcessorEditor (TestpluginAudioProcessor&);
+    ~TestpluginAudioProcessorEditor() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -27,7 +27,8 @@ public:
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    NewProjectAudioProcessor& audioProcessor;
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NewProjectAudioProcessorEditor)
+    TestpluginAudioProcessor& audioProcessor;
+    std::unique_ptr<juce::Drawable> svgimg;
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TestpluginAudioProcessorEditor)
 };
+
