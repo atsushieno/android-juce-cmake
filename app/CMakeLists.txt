@@ -18,7 +18,7 @@ if (ANDROID)
 # defs, some are specific to Android and need definisions in prior to `add_subdirectory(JUCE)`.
 add_definitions(
     "-DJUCE_ANDROID=1" 
-#    "-DJUCE_ANDROID_API_VERSION=16" 
+    "-DJUCE_ANDROID_API_VERSION=16"
     "-DJUCE_PUSH_NOTIFICATIONS=1" 
     "-DJUCE_PUSH_NOTIFICATIONS_ACTIVITY=\"com/rmsl/juce/JuceActivity\"" 
 #    "-DJUCER_ANDROIDSTUDIO_7F0E4A25=1" 
@@ -27,6 +27,7 @@ add_definitions(
     )
 
 # Enable these lines if you use juce_audio_devices API
+set(JUCE_USE_ANDROID_OBOE 1)
 set(OBOE_DIR "../JUCE/modules/juce_audio_devices/native/oboe")
 add_subdirectory (${OBOE_DIR} ./oboe)
 
