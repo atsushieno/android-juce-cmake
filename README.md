@@ -1,8 +1,13 @@
 It is an experimental repository to create a CMake-based JUCE project for Android.
 
-It works, but only with a tiny patch to JUCE which exposes `juce_CreateApplication()` function that is dynamically loaded by `juce_juceEventsAndroidStartApp()`: 
-https://gist.github.com/atsushieno/7da120ef87826c9d8fdf8ad6542a16f6
+Note that JUCE does not support CMake for Android by themselves yet. No support for audio plugins either.
+
+For technical details on the project contents, see [my blog post](https://atsushieno.github.io/2021/01/16/juce-cmake-android-now-works.html) for details.
+
+This comes with a tiny patch to JUCE which exposes `juce_CreateApplication()` function that is dynamically loaded by `juce_juceEventsAndroidStartApp()` (a patch `JUCE-support-Android-CMake.patch` is available for this).
+
+Also note that there are handful of [known JUCE issues](https://github.com/juce-framework/JUCE/issues?q=is%3Aissue+is%3Aopen+Android) that are Android specific. Especially you would be likely suffered from the audio input channel issues.
 
 The template is mostly based on [tomoyanonymous/juce_cmake_vscode_example](https://github.com/tomoyanonymous/juce_cmake_vscode_example).
 
-![screenshot](https://lh3.googleusercontent.com/8kyeDkb1sU5knRmnk2HG7NBBhG8hirWSSud2WgAwD-RP7J9_wNz_F69nWgN0UX_OmZ-gf30B79NYGP5m5JK8NQHrQ3SzO6IwucVjPVuTRpQV-ERAK2oBpBMGBdhglmCPdK_LEeBiSfI6mEWLI7MpG5QECh0oaoMaeGM6jc8S1Khr6RShumfrgyl-9n_RbLmaAs5nBzR9J_xZvFvg6RIKd-sqZCSdzecomPJJJWMcBRAM1PUFjJSnSymEmz2TZ15E1gehX_rHFBeLni6yzaev9ZSZu3Rn4vMMuZurgxGKFjmXsDUylYuk51K4tBx3WnhSbl8WXMfO31dHcf22Ru50vYItH1lQRKOr8jYkzXW5PcOpBntV3FrVjX_bhg51imlZld0iULBkIXSZmCFhdp490CFEpWHqyLfUpw-DN9RMhZ3-Qs6ytoej-GUqR_G-KPdMvtqbXIaEMqkqPCpBOLduIwngZ7Stg4_P7RILqfsOz3KUbMxE0Hk0_bnbamC6saa8vJ_9Kawa1HmDjcza25X-RuLeJn_xBrp_y5fNvHkAb_EAqLnLgnRkQJRbfPZsksGG7mys9e6iHKJU6sWQIuwsGdz-4y50e0htMSskj_nlyo3HxST1eF50ff1QvBLPIbWCM0fnv-gtM4df8EMye36sLueiDtGBwxzu0Zp5ZgQPswn7UdFfSBd0VqPzze5_4Q=w376-h827-no?authuser=0)
+![screenshot](https://raw.githubusercontent.com/atsushieno/atsushieno.github.io/master/images/sshot-template-project.png)
