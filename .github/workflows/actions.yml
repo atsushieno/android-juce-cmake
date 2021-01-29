@@ -39,8 +39,8 @@ jobs:
                  graphviz cmake ninja-build
     - name: stupid NDK setup workaround for GitHub Actions
       run: sudo mkdir -p /usr/local/lib/android/sdk/ndk && sudo chmod 777 /usr/local/lib/android/sdk/ndk
-    - name: workaround for https://github.com/actions/virtual-environments/issues/2228
-      run: echo "yes" | $ANDROID_HOME/tools/bin/sdkmanager "cmake;3.18.1" --channel=3
+    - name: specify local cmake for NDK CMake integration
+      run: echo "cmake.dir=/usr" > local.properties
     - name: build
       run: ./build.sh
     - name: upload-artifact
