@@ -46,6 +46,6 @@ jobs:
     - name: upload-artifact
       uses: actions/upload-artifact@v1
       with:
-        name: release-builds
-        path: release-builds
+        name: apk
+        path: app/build/outputs/apk/release/app-release-unsigned.apk
 
