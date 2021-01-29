@@ -72,7 +72,7 @@ jobs:
       run: |
         brew install doxygen pkg-config cmake coreutils ninja graphviz grpc
     - name: specify local cmake for NDK CMake integration
-      run: echo "cmake.dir=/usr" > local.properties
+      run: echo "cmake.dir=/usr/local/Cellar/cmake/3.19.1" > local.properties
     - name: build
       run: ./build.sh
       env:
