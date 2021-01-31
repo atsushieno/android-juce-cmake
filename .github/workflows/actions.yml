@@ -91,7 +91,7 @@ jobs:
       with:
         java-version: 11
     - name: test test test
-      run: where cmake
+      run: cmd /c where cmake
     - name: specify local cmake for NDK CMake integration
       run: echo "cmake.dir=C:\\Program\ Files\\CMake" > local.properties
     - name: build
