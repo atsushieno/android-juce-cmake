@@ -92,6 +92,7 @@ jobs:
         java-version: 11
     - name: test ninja
       run: cmd /c where ninja
+      if: false
     - name: test scoop
       run: cmd /c where scoop
     - name: test choco
