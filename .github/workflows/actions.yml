@@ -95,6 +95,7 @@ jobs:
       if: false
     - name: test scoop
       run: cmd /c where scoop
+      if: false
     - name: test choco
       run: cmd /c where choco
     - name: specify local cmake for NDK CMake integration
