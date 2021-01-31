@@ -90,14 +90,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
-    - name: test ninja
+    - name: install deps
+      run: choco install ninja
+    - name: where ninja
       run: cmd /c where ninja
-      if: false
-    - name: test scoop
-      run: cmd /c where scoop
-      if: false
-    - name: test choco
-      run: cmd /c where choco
     - name: specify local cmake for NDK CMake integration
       run: echo "cmake.dir=C:\\Program\ Files\\CMake" > local.properties
     - name: build
