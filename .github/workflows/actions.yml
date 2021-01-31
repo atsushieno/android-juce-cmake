@@ -78,3 +78,23 @@ jobs:
       env:
         ANDROID_SDK_ROOT: /Users/runner/Library/Android/sdk
 
+  windows-build:
+    name: build on windows
+    runs-on: windows-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+      with:
+        submodules: recursive
+    - name: set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: install deps
+      run: choco install ninja
+    - name: where ninja
+      run: cmd /c where ninja
+    - name: specify local cmake for NDK CMake integration
+      run: echo "cmake.dir=C:\\Program\ Files\\CMake" > local.properties
+    - name: build
+      run: ./build.bat
